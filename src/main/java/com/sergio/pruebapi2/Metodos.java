@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import org.eclipse.jgit.api.AddCommand;
 import org.eclipse.jgit.api.CommitCommand;
 import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.InitCommand;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
@@ -35,6 +36,15 @@ public class Metodos {
             builder.create();
         } catch (IOException ex) {
             System.out.println("Error: "+ex);
+        }
+    }
+    
+    public void inicializarRepositorio(String ruta){
+        InitCommand repositorio=new InitCommand();
+        try{
+            repositorio.setDirectory(new File(ruta)).call();
+        }catch(GitAPIException ex){
+            System.out.println("Error:"+ex);
         }
     }
     
