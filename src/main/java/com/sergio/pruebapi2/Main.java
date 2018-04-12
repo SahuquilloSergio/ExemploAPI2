@@ -16,7 +16,8 @@ public class Main {
                
             
             switch(op){
-                case 1: M.crearRepositorio();
+                case 1: String nombre=JOptionPane.showInputDialog("Nombre del Repositorio");
+                        M.crearRepositorio(nombre);
                         break;
                 case 2: M.clonar();
                         break;

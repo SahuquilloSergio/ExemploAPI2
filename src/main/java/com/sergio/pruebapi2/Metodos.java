@@ -10,6 +10,8 @@ import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
+import org.kohsuke.github.GHCreateRepositoryBuilder;
+import org.kohsuke.github.GitHub;
 
 public class Metodos {
     public void clonar(){
@@ -24,16 +26,15 @@ public class Metodos {
         }
     }
     
-    public void crearRepositorio(){
-        FileRepositoryBuilder builder = new FileRepositoryBuilder();
+    public void crearRepositorio(String nombre){
+//        FileRepositoryBuilder builder = new FileRepositoryBuilder();
         try {
-            Repository repository = builder.setGitDir(new File("C:\\Users\\serxa\\OneDrive\\Documentos\\NetBeansProjects\\ClonadoAPI.git"))
-                    .readEnvironment()
-                    .findGitDir()
-                    .setMustExist(true)
-                    .build();
+            GitHub github=GitHub.connect();
+            GHCreateRepositoryBuilder builder;
+            builder=github.createRepository(nombre);
+            builder.create();
         } catch (IOException ex) {
-            Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error: "+ex);
         }
     }
     
