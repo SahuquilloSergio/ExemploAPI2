@@ -11,7 +11,8 @@ public class Main {
             int op = Integer.parseInt(JOptionPane.showInputDialog("***MENU***\n"
                     + "1. Crear Repositorio\n"
                     + "2. Clonar Repositorio\n"
-                    + "3. Salir"));
+                    + "3. Commit"
+                    + "4. Push"));
             do{
                
             
@@ -21,8 +22,15 @@ public class Main {
                         break;
                 case 2: M.clonar();
                         break;
-                case 3: System.exit(0);
+                case 3: String ruta = JOptionPane.showInputDialog("Ruta");
+                        String msn = JOptionPane.showInputDialog("Mensaje");
+                        M.commit(ruta, msn);
                         break;
+                case 4: String ruta2 = JOptionPane.showInputDialog("Ruta");
+                        String msn2 = JOptionPane.showInputDialog("Mensaje");
+                        String nombre2 = JOptionPane.showInputDialog("Nombre");
+                        String msn3 = JOptionPane.showInputDialog("Mensaje");
+                        M.pushear(msn2, ruta2, nombre2, msn3);
             }
             }while(op<3);
     }

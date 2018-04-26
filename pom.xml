@@ -11,6 +11,12 @@
     <artifactId>org.eclipse.jgit</artifactId>
     <version>4.11.0.201803080745-r</version>
 </dependency>
+        <dependency>
+            <groupId>org.kohsuke</groupId>
+            <artifactId>github-api</artifactId>
+            <version>1.92</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
